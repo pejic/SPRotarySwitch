@@ -1,34 +1,37 @@
 
 #import "DemoViewController.h"
-#import "MHRotaryKnob.h"
+#import "SPRotarySwitch.h"
 
 @implementation DemoViewController
 
-@synthesize slider, label, rotaryKnob;
+@synthesize segmented, label, rotaryKnob;
 
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
 
-	rotaryKnob.maximumValue = slider.maximumValue;
-	rotaryKnob.minimumValue = slider.minimumValue;
-	rotaryKnob.minimumAngle =   60.0f;
-	rotaryKnob.maximumAngle =  120.0f;
-	rotaryKnob.value = slider.value;
-	rotaryKnob.defaultValue = rotaryKnob.value;
-	rotaryKnob.resetsToDefault = YES;
+	rotaryKnob.validAngles = [NSArray arrayWithObjects:
+				  [NSNumber numberWithFloat: -90.0],
+				  [NSNumber numberWithFloat:   0.0],
+				  [NSNumber numberWithFloat:  90.0],
+				  NULL];
 	rotaryKnob.backgroundColor = [UIColor clearColor];
 	rotaryKnob.backgroundImage = [UIImage imageNamed:@"Knob Background.png"];
-	[rotaryKnob setKnobImage:[UIImage imageNamed:@"Knob.png"] forState:UIControlStateNormal];
-	[rotaryKnob setKnobImage:[UIImage imageNamed:@"Knob Highlighted.png"] forState:UIControlStateHighlighted];
-	[rotaryKnob setKnobImage:[UIImage imageNamed:@"Knob Disabled.png"] forState:UIControlStateDisabled];
+	[rotaryKnob setKnobImage: [UIImage imageNamed:@"Knob.png"]
+			forState: UIControlStateNormal];
+	[rotaryKnob setKnobImage: [UIImage imageNamed:@"Knob Highlighted.png"]
+			forState: UIControlStateHighlighted];
+	[rotaryKnob setKnobImage: [UIImage imageNamed:@"Knob Disabled.png"]
+			forState: UIControlStateDisabled];
 	rotaryKnob.knobImageCenter = CGPointMake(80.0f, 76.0f);
-	[rotaryKnob addTarget:self action:@selector(rotaryKnobDidChange) forControlEvents:UIControlEventValueChanged];
+	[rotaryKnob addTarget: self
+		       action: @selector(rotaryKnobDidChange)
+	     forControlEvents: UIControlEventValueChanged];
 }
 
 - (void)releaseObjects
 {
-	[slider release], slider = nil;
+	[segmented release], segmented = nil;
 	[label release], label = nil;
 	[rotaryKnob release], rotaryKnob = nil;
 }
@@ -47,14 +50,16 @@
 
 - (IBAction)sliderDidChange
 {
-	label.text = [NSString stringWithFormat:@"%.3f", slider.value];
-	rotaryKnob.value = slider.value;
+	int i = segmented.selectedSegmentIndex;
+	rotaryKnob.selectedIndex = i;
+	label.text = [NSString stringWithFormat:@"%d", i];
 }
 
 - (IBAction)rotaryKnobDidChange
 {
-	label.text = [NSString stringWithFormat:@"%.3f", rotaryKnob.value];
-	slider.value = rotaryKnob.value;
+	int i = rotaryKnob.selectedIndex;
+	segmented.selectedSegmentIndex = i;
+	label.text = [NSString stringWithFormat:@"%d", i];
 }
 
 - (IBAction)toggleEnabled
@@ -62,22 +67,16 @@
 	rotaryKnob.enabled = !rotaryKnob.enabled;
 }
 
-- (IBAction)toggleContinuous
-{
-	slider.continuous = !slider.continuous;
-	rotaryKnob.continuous = !rotaryKnob.continuous;
-}
-
 - (IBAction)goToMinimum
 {
-	[slider setValue:slider.minimumValue animated:YES];
-	[rotaryKnob setValue:rotaryKnob.minimumValue animated:YES];
+	[rotaryKnob setSelectedIndex: 0
+			    animated: YES];
 }
 
 - (IBAction)goToMaximum
 {
-	[slider setValue:slider.maximumValue animated:YES];
-	[rotaryKnob setValue:rotaryKnob.maximumValue animated:YES];
+	[rotaryKnob setSelectedIndex: 2
+			    animated: YES];
 }
 
 @end

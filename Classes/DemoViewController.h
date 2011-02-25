@@ -1,18 +1,17 @@
 
-@class MHRotaryKnob;
+@class SPRotarySwitch;
 
 @interface DemoViewController : UIViewController
 {
 }
 
-@property (nonatomic, retain) IBOutlet UISlider* slider;
+@property (nonatomic, retain) IBOutlet UISegmentedControl* segmented;
 @property (nonatomic, retain) IBOutlet UILabel* label;
-@property (nonatomic, retain) IBOutlet MHRotaryKnob* rotaryKnob;
+@property (nonatomic, retain) IBOutlet SPRotarySwitch* rotaryKnob;
 
 - (IBAction)sliderDidChange;
 - (IBAction)rotaryKnobDidChange;
 - (IBAction)toggleEnabled;
-- (IBAction)toggleContinuous;
 - (IBAction)goToMinimum;
 - (IBAction)goToMaximum;
 
