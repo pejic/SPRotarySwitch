@@ -12,6 +12,8 @@
 
 	rotaryKnob.maximumValue = slider.maximumValue;
 	rotaryKnob.minimumValue = slider.minimumValue;
+	rotaryKnob.minimumAngle =   60.0f;
+	rotaryKnob.maximumAngle =  120.0f;
 	rotaryKnob.value = slider.value;
 	rotaryKnob.defaultValue = rotaryKnob.value;
 	rotaryKnob.resetsToDefault = YES;

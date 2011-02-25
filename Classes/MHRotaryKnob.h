@@ -3,7 +3,7 @@
  *
  * \brief UIControl subclass that acts like a rotary knob.
  *
- * Copyright (c) 2010 Matthijs Hollemans
+ * Copyright (c) 2010 Matthijs Hollemans, 2011 Slobodan Pejic
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -73,6 +73,12 @@
 
 /*! The minimum value of the control. Default is 0.0f. */
 @property (nonatomic, assign) float minimumValue;
+
+/*! The maximum angle of the knob. Default is 135.0f degrees. */
+@property (nonatomic, assign) float maximumAngle;
+
+/*! The minimum angle of the knob. Default is -135.0f degrees. */
+@property (nonatomic, assign) float minimumAngle;
 
 /*! The control's current value. Default is 0.5f (center position). */
 @property (nonatomic, assign) float value;

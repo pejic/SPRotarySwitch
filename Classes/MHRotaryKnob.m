@@ -13,17 +13,19 @@
 
 @implementation MHRotaryKnob
 
-@synthesize maximumValue, minimumValue, value, continuous, defaultValue,
-            resetsToDefault;
+@synthesize maximumValue, minimumValue, maximumAngle, minimumAngle, value,
+	continuous, defaultValue, resetsToDefault;
 
 - (float)angleForValue:(float)theValue
 {
-	return ((theValue - minimumValue)/(maximumValue - minimumValue) - 0.5f) * (MAX_ANGLE*2.0f);
+	return ((theValue - minimumValue)/(maximumValue - minimumValue))
+		* (maximumAngle - minimumAngle) + minimumAngle;
 }
 
 - (float)valueForAngle:(float)theAngle
 {
-	return (theAngle/(MAX_ANGLE*2.0f) + 0.5f) * (maximumValue - minimumValue) + minimumValue;
+	return ((theAngle - minimumAngle)/(maximumAngle - minimumAngle)) *
+		(maximumValue - minimumValue) + minimumValue;
 }
 
 - (float)angleBetweenCenterAndPoint:(CGPoint)point
@@ -34,10 +36,10 @@
 	// coordinate system is turned upside down and rotated 90 degrees. :-)
 	float theAngle = atan2(point.x - center.x, center.y - point.y) * 180.0f/M_PI;
 
-	if (theAngle < -MAX_ANGLE)
-		theAngle = -MAX_ANGLE;
-	else if (theAngle > MAX_ANGLE)
-		theAngle = MAX_ANGLE;
+	if (theAngle < minimumAngle)
+		theAngle = minimumAngle;
+	else if (theAngle > maximumAngle)
+		theAngle = maximumAngle;
 
 	return theAngle;
 }
@@ -115,8 +117,10 @@
 {
 	minimumValue = 0.0f;
 	maximumValue = 1.0f;
+	minimumAngle = -MAX_ANGLE;
+	maximumAngle =  MAX_ANGLE;
 	value = defaultValue = 0.5f;
-	angle = 0.0f;
+	angle = [self angleForValue: value];
 	continuous = YES;
 	resetsToDefault = YES;
 
@@ -308,7 +312,8 @@
 	if (fabsf(delta) > 45.0f)
 		return NO;
 
-	self.value += (maximumValue - minimumValue) * delta / (MAX_ANGLE*2.0f);
+	self.value += (maximumValue - minimumValue) * delta
+		/ (maximumAngle-minimumAngle);
 
 	// Note that the above is equivalent to:
 	//self.value += [self valueForAngle:newAngle] - [self valueForAngle:angle];
