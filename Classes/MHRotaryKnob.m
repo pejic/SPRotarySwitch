@@ -36,11 +36,6 @@
 	// coordinate system is turned upside down and rotated 90 degrees. :-)
 	float theAngle = atan2(point.x - center.x, center.y - point.y) * 180.0f/M_PI;
 
-	if (theAngle < minimumAngle)
-		theAngle = minimumAngle;
-	else if (theAngle > maximumAngle)
-		theAngle = maximumAngle;
-
 	return theAngle;
 }
 
