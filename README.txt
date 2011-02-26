@@ -13,8 +13,8 @@ You have to provide the images for the knob and the background. The demo project
 includes a few basic images but you probably want to use graphics that suit your
 app's look-and-feel better. 
 
-(The demo project also includes Knob.xcf, which is the source GIMP file that I
-used to draw the knob image.)
+(The demo project also includes Knob.xcf and Knob.blend, which are the GIMP and
+Blender source files respectively.)
 
 If you want to do more fancy drawing, then you can easily modify the
 MHRotaryKnob class. Its -valueDidChangeFrom:to:animated: method is invoked
