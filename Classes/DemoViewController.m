@@ -10,6 +10,7 @@
 {
 	[super viewDidLoad];
 
+	rotaryKnob.defaultSelectedIndex = 1;
 	rotaryKnob.validAngles = [NSArray arrayWithObjects:
 				  [NSNumber numberWithFloat: -90.0],
 				  [NSNumber numberWithFloat:   0.0],
@@ -65,6 +66,11 @@
 - (IBAction)toggleEnabled
 {
 	rotaryKnob.enabled = !rotaryKnob.enabled;
+}
+
+- (IBAction)toggleDoubleTap
+{
+	rotaryKnob.resetsToDefault = !rotaryKnob.resetsToDefault;
 }
 
 - (IBAction)goToMinimum

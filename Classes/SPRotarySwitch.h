@@ -45,6 +45,7 @@
 {
 	MHRotaryKnob* knob;
 	NSArray* validAngles; ///Angles to which the control snaps to.
+	int defaultSelectedIndex;
 }
 
 /*! The angles to which the control snaps to. An array of NSNumbers. Setting
@@ -54,6 +55,12 @@
 
 /*! The index in validAngles of the current selected angle. */
 @property (nonatomic, assign) int selectedIndex;
+
+/*!
+ * The default selected index. If resetsToDefault is true then this is the
+ * value a double tap will set.
+ */
+@property (nonatomic, assign) int defaultSelectedIndex;
 
 /*!
  * Allows animating of setting the selectedIndex.
@@ -71,6 +78,12 @@
 
 /*! For positioning the knob image. */
 @property (nonatomic, assign) CGPoint knobImageCenter;
+
+/*!
+ * Whether the control resets to the default value on a double tap.
+ * Default is YES.
+ */
+@property (nonatomic, assign) BOOL resetsToDefault;
 
 /*!
  * Assigns a knob image to the specified control states.

@@ -12,6 +12,7 @@
 - (IBAction)sliderDidChange;
 - (IBAction)rotaryKnobDidChange;
 - (IBAction)toggleEnabled;
+- (IBAction)toggleDoubleTap;
 - (IBAction)goToMinimum;
 - (IBAction)goToMaximum;
 

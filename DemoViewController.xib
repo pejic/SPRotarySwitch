@@ -143,6 +143,25 @@
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="585423686"/>
 					</object>
+					<object class="IBUIButton" id="782801266">
+						<reference key="NSNextResponder" ref="774585933"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{80, 313}, {162, 37}}</string>
+						<reference key="NSSuperview" ref="774585933"/>
+						<bool key="IBUIOpaque">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<int key="IBUIContentHorizontalAlignment">0</int>
+						<int key="IBUIContentVerticalAlignment">0</int>
+						<reference key="IBUIFont" ref="193202132"/>
+						<int key="IBUIButtonType">1</int>
+						<string key="IBUINormalTitle">Toggle Double Tap</string>
+						<reference key="IBUIHighlightedTitleColor" ref="323064153"/>
+						<object class="NSColor" key="IBUINormalTitleColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+						</object>
+						<reference key="IBUINormalTitleShadowColor" ref="585423686"/>
+					</object>
 					<object class="IBUISegmentedControl" id="544502919">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
@@ -268,6 +287,15 @@
 					</object>
 					<int key="connectionID">26</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">toggleDoubleTap</string>
+						<reference key="source" ref="782801266"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">29</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -300,6 +328,7 @@
 							<reference ref="85727346"/>
 							<reference ref="252534055"/>
 							<reference ref="544502919"/>
+							<reference ref="782801266"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -333,6 +362,11 @@
 						<reference key="object" ref="252534055"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">27</int>
+						<reference key="object" ref="782801266"/>
+						<reference key="parent" ref="774585933"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -352,6 +386,8 @@
 					<string>21.IBViewBoundsToFrameTransform</string>
 					<string>24.IBPluginDependency</string>
 					<string>24.IBViewBoundsToFrameTransform</string>
+					<string>27.IBPluginDependency</string>
+					<string>27.IBViewBoundsToFrameTransform</string>
 					<string>6.IBEditorWindowLastContentRect</string>
 					<string>6.IBPluginDependency</string>
 					<string>6.IBViewBoundsToFrameTransform</string>
@@ -377,13 +413,17 @@
 					</object>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAABCqAAAw92AAA</bytes>
+						<bytes key="NSTransformStruct">AUKeAABDhgAAA</bytes>
 					</object>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
 						<bytes key="NSTransformStruct">P4AAAL+AAABBoAAAwiAAAA</bytes>
 					</object>
-					<string>{{992, 498}, {320, 480}}</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<object class="NSAffineTransform">
+						<bytes key="NSTransformStruct">P4AAAL+AAABCoAAAw64AAA</bytes>
+					</object>
+					<string>{{1017, 507}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
 						<bytes key="NSTransformStruct">P4AAAL+AAAAAAAAAw+UAAA</bytes>
@@ -410,7 +450,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">26</int>
+			<int key="maxID">29</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -426,7 +466,7 @@
 							<string>goToMinimum</string>
 							<string>rotaryKnobDidChange</string>
 							<string>sliderDidChange</string>
-							<string>toggleContinuous</string>
+							<string>toggleDoubleTap</string>
 							<string>toggleEnabled</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -447,7 +487,7 @@
 							<string>goToMinimum</string>
 							<string>rotaryKnobDidChange</string>
 							<string>sliderDidChange</string>
-							<string>toggleContinuous</string>
+							<string>toggleDoubleTap</string>
 							<string>toggleEnabled</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -469,7 +509,7 @@
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">toggleContinuous</string>
+								<string key="name">toggleDoubleTap</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">

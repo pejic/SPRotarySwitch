@@ -142,6 +142,7 @@
 	validAngles = va;
 	[self updateMinMax];
 	[self setSelectedIndex: 0];
+	[self setDefaultSelectedIndex: [self defaultSelectedIndex]];
 }
 
 -(int) selectedIndex
@@ -153,6 +154,18 @@
 {
 	[self setSelectedIndex: ind
 		      animated: NO];
+}
+
+-(int) defaultSelectedIndex
+{
+	return (defaultSelectedIndex);
+}
+
+-(void) setDefaultSelectedIndex: (int) ind
+{
+	defaultSelectedIndex = ind;
+	float angle = [[validAngles objectAtIndex: ind] floatValue];
+	[knob setDefaultValue: angle]; // Note angle is value by design
 }
 
 /*!
@@ -205,6 +218,16 @@
 -(void) setKnobImageCenter: (CGPoint) cgp
 {
 	[knob setKnobImageCenter: cgp];
+}
+
+-(BOOL) resetsToDefault
+{
+	return ([knob resetsToDefault]);
+}
+
+-(void) setResetsToDefault: (BOOL) rtd
+{
+	[knob setResetsToDefault: rtd];
 }
 
 -(void) setKnobImage: (UIImage*) image
