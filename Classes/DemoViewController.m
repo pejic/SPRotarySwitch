@@ -30,23 +30,9 @@
 	     forControlEvents: UIControlEventValueChanged];
 }
 
-- (void)releaseObjects
-{
-	[segmented release], segmented = nil;
-	[label release], label = nil;
-	[rotaryKnob release], rotaryKnob = nil;
-}
-
 - (void)viewDidUnload
 {
 	[super viewDidUnload];
-	[self releaseObjects];
-}
-
-- (void)dealloc
-{
-	[self releaseObjects];
-	[super dealloc];
 }
 
 - (IBAction)sliderDidChange

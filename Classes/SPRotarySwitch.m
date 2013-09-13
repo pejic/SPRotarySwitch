@@ -123,13 +123,6 @@
 	return (self);
 }
 
--(void) dealloc
-{
-	[knob release];
-	[validAngles release];
-	[super dealloc];
-}
-
 -(NSArray*) validAngles
 {
 	return (validAngles);
@@ -137,8 +130,6 @@
 
 -(void) setValidAngles: (NSArray*) va
 {
-	[va retain];
-	[validAngles release];
 	validAngles = va;
 	[self updateMinMax];
 	[self setSelectedIndex: 0];

@@ -146,16 +146,6 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[knobImageView release];
-	[backgroundImageView release];
-	[knobImageNormal release];
-	[knobImageHighlighted release];
-	[knobImageDisabled release];
-	[super dealloc];
-}
-
 - (UIImage*)backgroundImage
 {
 	return backgroundImageView.image;
@@ -177,8 +167,7 @@
 	{
 		if (image != knobImageNormal)
 		{
-			[knobImageNormal release];
-			knobImageNormal = [image retain];
+			knobImageNormal = image;
 
 			if (self.state == UIControlStateNormal)
 			{
@@ -192,8 +181,7 @@
 	{
 		if (image != knobImageHighlighted)
 		{
-			[knobImageHighlighted release];
-			knobImageHighlighted = [image retain];
+			knobImageHighlighted = image;
 
 			if (self.state & UIControlStateHighlighted)
 				knobImageView.image = image;
@@ -204,8 +192,7 @@
 	{
 		if (image != knobImageDisabled)
 		{
-			[knobImageDisabled release];
-			knobImageDisabled = [image retain];
+			knobImageDisabled = image;
 
 			if (self.state & UIControlStateDisabled)
 				knobImageView.image = image;
