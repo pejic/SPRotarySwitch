@@ -132,7 +132,6 @@
 {
 	validAngles = va;
 	[self updateMinMax];
-	[self setSelectedIndex: 0];
 	[self setDefaultSelectedIndex: [self defaultSelectedIndex]];
 }
 
